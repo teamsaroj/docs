@@ -1,5 +1,7 @@
 # Porttera Docs
 
+[![Docs Check](https://github.com/teamsaroj/docs/actions/workflows/docs-check.yml/badge.svg)](https://github.com/teamsaroj/docs/actions/workflows/docs-check.yml)
+
 Documentation for the Porttera Shopify apps (Wholesale, Product Customizer, Bundles),
 built with [Mintlify](https://mintlify.com).
 

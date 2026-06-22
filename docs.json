@@ -11,6 +11,15 @@
   "appearance": {
     "default": "dark"
   },
+  "fonts": {
+    "family": "Inter"
+  },
+  "background": {
+    "decoration": "gradient"
+  },
+  "styling": {
+    "codeblocks": "dark"
+  },
   "favicon": "/favicon.svg",
   "logo": {
     "light": "/logo/light.svg",
@@ -20,6 +29,7 @@
     "tabs": [
       {
         "tab": "Get started",
+        "icon": "rocket",
         "groups": [
           { "group": "Welcome", "pages": ["index", "install"] },
           { "group": "Resources", "pages": ["faq", "changelog"] }
@@ -27,18 +37,21 @@
       },
       {
         "tab": "Wholesale",
+        "icon": "tags",
         "groups": [
           { "group": "Wholesale", "pages": ["wholesale/overview", "wholesale/quickstart", "wholesale/features", "wholesale/settings", "wholesale/developer", "wholesale/troubleshooting"] }
         ]
       },
       {
         "tab": "Product Customizer",
+        "icon": "wand-magic-sparkles",
         "groups": [
           { "group": "Product Customizer", "pages": ["customizer/overview", "customizer/quickstart", "customizer/features", "customizer/settings", "customizer/developer", "customizer/troubleshooting"] }
         ]
       },
       {
         "tab": "Bundles",
+        "icon": "boxes-stacked",
         "groups": [
           { "group": "Bundles", "pages": ["bundles/overview", "bundles/quickstart", "bundles/features", "bundles/settings", "bundles/developer", "bundles/troubleshooting"] }
         ]

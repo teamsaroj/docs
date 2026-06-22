@@ -1,0 +1,32 @@
+name: Docs Check
+
+# Validates the Mintlify config and checks internal links on every push and PR.
+# Mintlify handles the actual deploy via its GitHub app; this is the CI signal.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docs-check:
+    name: Validate docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate docs.json
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('docs.json','utf8')); console.log('docs.json is valid JSON')"
+
+      - name: Install Mintlify CLI
+        run: npm i -g mint
+
+      - name: Check for broken links
+        run: mint broken-links

@@ -1,7 +1,10 @@
 /* Porttera docs — custom styling.
    Give the left sidebar a subtle panel background + divider so it reads as
-   separate from the main content. Neutral gray matches the porttera-pro
-   theme's muted accent (#8A8A8A) in both light and dark. */
+   separate from the main content. The brand palette is strictly monochrome
+   (ink / paper — see porttera-pro's tokens.css), so a mid gray is used here
+   instead: it stays visible at low opacity against both the light and dark
+   background, where a translucent ink or paper tint would wash out in one
+   of the two themes. */
 
 #sidebar,
 aside#sidebar,

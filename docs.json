@@ -4,21 +4,28 @@
   "name": "Porttera",
   "description": "Guides and reference for the Porttera apps — Wholesale, Product Customizer, and Bundles.",
   "colors": {
-    "primary": "#117afa",
-    "light": "#3b95ff",
-    "dark": "#117afa"
+    "primary": "#111111",
+    "light": "#f9f9f5",
+    "dark": "#111111"
   },
   "appearance": {
     "default": "dark"
   },
   "fonts": {
-    "family": "Inter"
+    "heading": {
+      "family": "Cormorant Garamond",
+      "weight": 500
+    },
+    "body": {
+      "family": "Inter"
+    }
   },
   "background": {
     "color": {
-      "dark": "#0B0B0B"
+      "light": "#f9f9f5",
+      "dark": "#111111"
     },
-    "decoration": "gradient"
+    "decoration": "grid"
   },
   "styling": {
     "codeblocks": "dark"

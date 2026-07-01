@@ -17,3 +17,12 @@ nav#sidebar {
 #sidebar {
   padding-right: 4px;
 }
+
+/* Dot-grid background instead of Mintlify's built-in "grid" decoration
+   (docs.json has no "dots" option, so this is done by hand). Same neutral
+   mid-gray as the sidebar tint above, for the same reason: it reads at low
+   opacity against both the light and dark background. */
+html {
+  background-image: radial-gradient(rgba(138, 138, 138, 0.35) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}

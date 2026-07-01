@@ -12,20 +12,13 @@
     "default": "dark"
   },
   "fonts": {
-    "heading": {
-      "family": "Cormorant Garamond",
-      "weight": 500
-    },
-    "body": {
-      "family": "Inter"
-    }
+    "family": "Inter"
   },
   "background": {
     "color": {
       "light": "#f9f9f5",
       "dark": "#111111"
-    },
-    "decoration": "grid"
+    }
   },
   "styling": {
     "codeblocks": "dark"

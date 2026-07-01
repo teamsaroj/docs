@@ -1,8 +1,8 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Porttera",
-  "description": "Guides and reference for the Porttera apps — Wholesale, Product Customizer, and Bundles.",
+  "name": "Porttera Bundles",
+  "description": "Install, configure, customize, and uninstall Porttera Bundles.",
   "colors": {
     "primary": "#111111",
     "light": "#f9f9f5",
@@ -36,34 +36,19 @@
     "dark": "/logo/dark.svg"
   },
   "navigation": {
-    "tabs": [
+    "groups": [
+      { "group": "Welcome", "pages": ["index", "faq", "changelog"] },
       {
-        "tab": "Get started",
-        "icon": "rocket",
-        "groups": [
-          { "group": "Welcome", "pages": ["index", "install"] },
-          { "group": "Resources", "pages": ["faq", "changelog"] }
-        ]
-      },
-      {
-        "tab": "Wholesale",
-        "icon": "tags",
-        "groups": [
-          { "group": "Wholesale", "pages": ["wholesale/overview", "wholesale/quickstart", "wholesale/features", "wholesale/settings", "wholesale/developer", "wholesale/troubleshooting"] }
-        ]
-      },
-      {
-        "tab": "Product Customizer",
-        "icon": "wand-magic-sparkles",
-        "groups": [
-          { "group": "Product Customizer", "pages": ["customizer/overview", "customizer/quickstart", "customizer/features", "customizer/settings", "customizer/developer", "customizer/troubleshooting"] }
-        ]
-      },
-      {
-        "tab": "Bundles",
-        "icon": "boxes-stacked",
-        "groups": [
-          { "group": "Bundles", "pages": ["bundles/overview", "bundles/quickstart", "bundles/features", "bundles/settings", "bundles/developer", "bundles/troubleshooting"] }
+        "group": "Bundles",
+        "pages": [
+          "bundles/overview",
+          "bundles/installation",
+          "bundles/configuration",
+          "bundles/customization",
+          "bundles/features",
+          "bundles/how-it-works",
+          "bundles/uninstalling",
+          "bundles/troubleshooting"
         ]
       }
     ]

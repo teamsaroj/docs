@@ -1,0 +1,114 @@
+---
+title: "Configuration"
+description: "Every field in the bundle editor, the app settings page, and billing."
+---
+
+All of this lives in the app admin — under **Apps → Porttera Bundles** in your Shopify admin —
+not in the theme editor. The theme editor only holds the display settings, covered in
+[Customization](/bundles/customization).
+
+## The bundle editor
+
+Go to **Bundles → Create bundle** (or open an existing one to edit it). Every bundle has these
+fields:
+
+<AccordionGroup>
+  <Accordion title="Bundle title" icon="heading">
+    Shown to customers in the cart and as the tab label if a page shows more than one bundle.
+  </Accordion>
+  <Accordion title="Description" icon="align-left">
+    Shown under the title on the storefront. Optional.
+  </Accordion>
+  <Accordion title="Label" icon="tag">
+    A short badge shown above the bundle's tab — e.g. "Free shipping" or "Best value."
+    Optional.
+  </Accordion>
+  <Accordion title="Pricing type" icon="dollar-sign">
+    **Fixed bundle price** — the whole bundle costs one set price, no matter which items are
+    picked.
+
+    **Tiered volume discount** — there's no fixed price. Customers add any quantity, and the
+    percentage off goes up at the item counts you define in the tiers below.
+  </Accordion>
+  <Accordion title="Bundle price (fixed only)" icon="sack-dollar">
+    What the whole bundle should cost. This only applies to fixed bundles and it has to be
+    greater than $0.
+  </Accordion>
+  <Accordion title="Discount tiers (tiered only)" icon="chart-line">
+    Each tier is an item count and a percent off — e.g. 3 items = 10% off, 5 items = 15% off,
+    10 items = 25% off. Add as many tiers as you want; the highest tier a customer's cart
+    qualifies for is the one that applies. Switching pricing type to tiered for the first time
+    prefills those three example tiers so you have something to start from.
+  </Accordion>
+  <Accordion title="Offer Subscribe & Save" icon="rotate">
+    Turns on a one-time / subscribe toggle on the storefront. Choosing subscribe gives the
+    customer 15% off (instead of the bundle's normal discount) and sets up a recurring
+    delivery every 30 days, through a Shopify selling plan the app creates and manages for
+    you — there's nothing to configure in Shopify's own subscriptions settings.
+  </Accordion>
+</AccordionGroup>
+
+### Categories
+
+A bundle is built from one or more categories. Click **Add category**, give it a name (e.g.
+"Sauces," "T-shirts"), and set:
+
+- **Items to pick** — how many items from this category a customer must choose. This only
+  shows for fixed bundles; tiered bundles let customers pick any quantity from each category.
+- **Free gift (100% off)** — turns this category into a pick-a-free-gift category. Items
+  picked here are added at no charge; everything else in the bundle keeps its normal price.
+
+Click **Add products** to open Shopify's product picker and add items to the category. Each
+item shows in a list underneath, with a **Remove** link if you want to take it back out.
+
+You can add as many categories as you like, and remove a whole category with the **Remove
+category** button in its header.
+
+### Always-included items
+
+Below the categories is a separate list for items that go into every order of this bundle
+automatically — no picking required. A bundle made up only of always-included items (no
+categories) works as a fixed, preselected set.
+
+## Saving
+
+**Save** validates the bundle before it writes anything:
+
+- A tiered bundle needs at least one category with products **and** at least one discount
+  tier.
+- A fixed bundle needs either a category with products or some always-included items, **and**
+  a bundle price greater than $0.
+
+Once it saves, the bundle gets a **handle** shown at the top of the page — that's what you
+paste into the theme block's settings (see [Customization](/bundles/customization)).
+
+## The Bundles list
+
+**Bundles** in the app's sidebar lists every bundle with its title, price, and pick count. Open
+one to edit it, or use its **Delete** button to remove it (you'll get a confirmation prompt
+first — deleting is immediate and can't be undone from the app).
+
+## Analytics
+
+The **Analytics** page shows a drop-off funnel for each bundle — how many shoppers open the
+builder, how many get through picking, and how many finish — over the last 30 days, plus
+bundle order counts and sales over a longer window once you have orders coming in. There's
+nothing to configure here; it fills in as customers use the builder.
+
+## App settings
+
+The **Settings** page in the app has two things on it:
+
+- **Open theme editor** — a shortcut straight to your theme's customizer, so you don't have to
+  go hunting for it in your Shopify admin.
+- **Re-create definitions** — rebuilds the metaobject definitions the app relies on to store
+  bundle data. You shouldn't need this normally; it's there for the rare case where bundles
+  stop loading in the theme editor (see
+  [Troubleshooting](/bundles/troubleshooting)).
+
+## Plan & billing
+
+**Plan & billing** in the app shows your current plan and lets you switch between Basic and
+Pro. Both changes and cancellations go through Shopify's own billing — the app never charges
+you directly, and you can always double-check or cancel from **Settings → Billing** in your
+Shopify admin.

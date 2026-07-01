@@ -1,0 +1,69 @@
+---
+title: "Installation"
+description: "Install Porttera Bundles, choose a plan, and get your first bundle live."
+---
+
+<Steps>
+  <Step title="Install from the Shopify App Store">
+    Search for **Porttera Bundles** in the Shopify App Store, or open the listing link
+    directly, and click **Install**.
+  </Step>
+  <Step title="Approve the permissions">
+    Shopify shows a permissions screen before the install finishes. Porttera Bundles asks for:
+
+    - **Read and write products** — to show your catalog in the product picker and, when
+      Subscribe & Save is on, to attach the subscription plan to the variants you've chosen.
+    - **Read and write discounts** — to create the automatic discount that prices bundles at
+      checkout.
+    - **Read and write metaobjects (and their definitions)** — bundle configuration is stored
+      as metaobjects on your own store, not in some database you don't control.
+
+    It doesn't ask for order, customer, or storefront-content access, because it doesn't need
+    any of that to work.
+  </Step>
+  <Step title="Choose a plan">
+    You'll land on **Plan & billing** inside the app. There are two plans, both with a
+    7-day free trial:
+
+    | Plan | Price | Included |
+    | --- | --- | --- |
+    | Basic | $9.99/mo | Up to 5 bundles, fixed-price and tiered pricing |
+    | Pro | $24.99/mo | Unlimited bundles, always-included items, priority support |
+
+    Picking a plan sends you to Shopify's own hosted pricing page — the charge shows up on
+    your normal Shopify bill, and you can change or cancel the plan any time from
+    **Settings → Billing** in your Shopify admin.
+  </Step>
+  <Step title="Check the app home checklist">
+    The app's home page walks through what's left before you're live: a plan active, the
+    automatic bundle-pricing discount active, and at least one bundle created. If the pricing
+    discount shows as not active yet, see
+    [Troubleshooting](/bundles/troubleshooting#the-bundle-pricing-discount-isnt-active).
+  </Step>
+  <Step title="Create your first bundle">
+    Go to **Bundles → Create bundle**, give it a title, choose fixed or tiered pricing, and
+    add at least one category of products (or some always-included items). Save. The full
+    field-by-field walkthrough is in [Configuration](/bundles/configuration).
+
+    <Frame caption="Creating a bundle in the app admin">
+      <img src="/images/bundles-setup.svg" alt="Create a bundle" />
+    </Frame>
+
+    Saving gives the bundle a **handle** — you'll need it in the next step.
+  </Step>
+  <Step title="Add the builder block to your theme">
+    Open **Online Store → Themes → Customize**, go to the page or template where you want the
+    bundle to show, click **Add block**, and choose **Bundle builder**. Paste the bundle's
+    handle into the block's **Bundle handles** setting. Save.
+  </Step>
+  <Step title="Test it">
+    Open the page, pick items until the bundle is complete, and add it to the cart. Confirm the
+    cart total matches the bundle price (or the discounted total, for tiered bundles) before
+    you publish the page to real traffic.
+  </Step>
+</Steps>
+
+<Check>
+  A bundle is live once its handle is in a published theme block and the cart total comes out
+  right. If it doesn't, [Troubleshooting](/bundles/troubleshooting) covers the common causes.
+</Check>

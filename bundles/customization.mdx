@@ -1,0 +1,61 @@
+---
+title: "Customization"
+description: "The Bundle builder block's settings in the theme editor, and how its look follows your theme."
+---
+
+Everything in this page is set in **Online Store → Themes → Customize**, on whichever page or
+template holds the **Bundle builder** block. Bundle content itself (title, price, products) is
+set in the app admin — see [Configuration](/bundles/configuration).
+
+## Block settings
+
+<AccordionGroup>
+  <Accordion title="Bundle handles" icon="list">
+    One bundle handle per line. Each handle becomes its own tab if you list more than one, so a
+    single block can show several bundles side by side. Copy handles from the Bundles list in
+    the app admin.
+  </Accordion>
+  <Accordion title="Bundle handle (single)" icon="tag">
+    A fallback used only if **Bundle handles** above is empty. Handy for a block that will only
+    ever show one bundle.
+  </Accordion>
+  <Accordion title="Heading" icon="heading">
+    Optional text shown above the builder. Leave it blank and no heading renders.
+  </Accordion>
+  <Accordion title="Add button label" icon="cart-shopping">
+    The text on the add-to-cart button. Defaults to "Add bundle to cart."
+  </Accordion>
+  <Accordion title="Columns" icon="table-cells">
+    How many items show per row in the product grid, from 2 to 5. Defaults to 3 — narrower
+    screens still stack down responsively below whatever you set here.
+  </Accordion>
+  <Accordion title="App proxy subpath" icon="link">
+    Advanced — this has to match the app's configured proxy subpath, which is
+    `porttera-bundles` by default. Leave it alone unless you know you've changed that.
+  </Accordion>
+</AccordionGroup>
+
+## Multiple bundles, one block
+
+If a block's **Bundle handles** setting lists more than one handle, the builder shows a row of
+tabs — one per bundle, labeled with each bundle's title (and its Label badge, if it has one) —
+and customers switch between them without leaving the page.
+
+## Appearance
+
+There's no color picker or font setting in the block, and that's on purpose. The builder reads
+your theme's own design tokens — colors, corner radius on buttons and inputs, button font — and
+matches them automatically, so it looks like part of the theme rather than a plugin bolted onto
+the page. That works out of the box on Shopify's Horizon theme and most Online Store 2.0
+themes, since they expose the same standard set of CSS variables.
+
+If you want to go further than that — a different layout, custom spacing, anything past
+color and radius — that's a CSS change your theme developer would make against the block's
+own class names (`.porttera`, `.porttera__tabs`, `.porttera-panel`, and so on), not something
+available as an editor setting today.
+
+## Placement
+
+The block can go on any page or section your theme supports app blocks on — a dedicated
+"Build a bundle" page works well, but a product page or a custom template works too. Where you
+put it is entirely up to you; the app doesn't require a specific page type.

@@ -1,39 +1,42 @@
 ---
 title: "FAQ"
-description: "Common questions about the Porttera apps."
+description: "Common questions about Porttera Bundles."
 ---
 
 <AccordionGroup>
-  <Accordion title="Do the apps slow my store down?" icon="gauge-high">
-    No. Every app installs as a theme app extension with lightweight, deferred scripts — and
-    nothing is injected into your theme's layout. They're built to stay out of the way of your
-    page speed.
+  <Accordion title="Does it slow my store down?" icon="gauge-high">
+    It shouldn't. The builder is a theme app extension with a deferred script, and nothing is
+    injected into your theme's layout outside the block itself.
   </Accordion>
-  <Accordion title="Do they inject code into my theme?" icon="code">
-    No. Each app is a block you add in the theme editor. There's no pasted snippet in
-    `theme.liquid`, and uninstalling leaves nothing behind.
+  <Accordion title="Does it inject code into my theme?" icon="code">
+    No. It's a block you add in the theme editor — there's no pasted snippet in
+    `theme.liquid`.
   </Accordion>
   <Accordion title="What happens when I uninstall?" icon="trash">
-    The block stops rendering and the data the app held is removed (except records we're
-    legally required to keep, like billing). Your theme is untouched.
+    Your billing cancels, and the app's own records (your session, your plan) are deleted.
+    Bundle configuration is stored as metaobjects on your own store, so it stays behind unless
+    you remove it yourself. Full details in [Uninstalling](/bundles/uninstalling).
   </Accordion>
   <Accordion title="Which themes are supported?" icon="palette">
-    Any **Online Store 2.0** theme. If you switch themes, just re-add the block on the new one —
-    your settings stay with the app.
+    Any **Online Store 2.0** theme. Switching themes just means re-adding the block on the new
+    one — your bundles themselves aren't tied to a theme.
   </Accordion>
-  <Accordion title="Do the apps work together?" icon="puzzle-piece">
-    Yes. Wholesale, Product Customizer, and Bundles are designed to run side by side on the
-    same store without conflicts.
+  <Accordion title="Can a bundle discount combine with other discounts?" icon="tags">
+    Yes, by default. The automatic bundle discount is set to combine with order, product, and
+    shipping discounts, so a bundle can still pick up a storewide sale or a shipping promo on
+    top of its own price.
   </Accordion>
   <Accordion title="How is billing handled?" icon="credit-card">
-    Through Shopify, under the plan shown when you install. Cancel any time by uninstalling.
+    Through Shopify's own billing, under whichever plan you choose after installing. Change or
+    cancel any time from Shopify's billing settings, or by uninstalling.
   </Accordion>
   <Accordion title="Is my data safe?" icon="shield-halved">
-    We process only the data needed to run the app you've installed, and we don't sell it or
-    use it for advertising. See the [privacy policy](https://porttera.com/pages/privacy).
+    The app doesn't collect customer personal data at all — no names, emails, or order
+    contents. It only touches products, discounts, and the metaobjects it stores your bundle
+    configuration in. See the full [privacy policy](https://porttera.com/pages/privacy).
   </Accordion>
   <Accordion title="How do I get support?" icon="life-ring">
     Use the [contact form](https://porttera.com/pages/contact) — it reaches the person who
-    built the apps, not a ticket queue.
+    built the app, not a ticket queue.
   </Accordion>
 </AccordionGroup>

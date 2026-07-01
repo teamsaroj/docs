@@ -1,32 +1,64 @@
 ---
 title: "Troubleshooting"
-description: "Common Bundles issues and how to fix them."
+description: "Real causes for the problems that actually come up, not generic advice."
 ---
 
 <AccordionGroup>
-  <Accordion title="The bundle doesn't show on the page" icon="eye-slash">
-    - Confirm the **Bundle block** is added to the product (or bundle page) in the theme editor.
-    - Confirm the bundle is **published** in the app admin.
-    - Republish the theme after adding the block.
+  <Accordion title="The builder doesn't show on the page" icon="eye-slash">
+    In the theme editor, the block only renders once at least one handle in **Bundle handles**
+    matches a bundle you've actually saved. Check for:
+
+    - A typo in the handle, or a handle copied from the wrong bundle.
+    - A bundle that hasn't been saved yet — it doesn't exist until you click **Save** in the
+      editor, and only then does it get a handle.
+    - Trailing spaces or an extra blank line in **Bundle handles** — each line is trimmed, but
+      an entirely empty line is just skipped, not an error.
+
+    While you're editing the theme, an empty state placeholder shows in the block instead of
+    nothing — that placeholder only appears in the theme editor's preview, not on the live
+    page, so don't worry that it "still shows" in a private window.
   </Accordion>
-  <Accordion title="The savings aren't displayed" icon="badge-percent">
-    Turn on the **savings badge** in settings. With **fixed** pricing, the savings are shown
-    against the combined item total.
+  <Accordion title="The bundle pricing discount isn't active" icon="triangle-exclamation">
+    The app's home page shows a checklist, and one line is whether the automatic **Bundle
+    pricing** discount is active. It's created automatically the first time the app loads —
+    if it says not active, reload the app admin after a minute or two. If it's still not active
+    after that, [get in touch](https://porttera.com/pages/contact) — it usually means the
+    pricing Function hasn't finished deploying on our end, not something wrong on your store.
+    Until it's active, bundle items are added to the cart at full price with no discount.
   </Accordion>
-  <Accordion title="Only one item is added to the cart" icon="cart-shopping">
-    Re-check the bundle's **item list** in the app admin — every component must be listed. If an
-    item is unavailable, it won't be added (see stock, below).
+  <Accordion title="Bundles aren't loading in the theme editor" icon="database">
+    This usually means the metaobject definitions the app relies on got out of sync — it can
+    happen after a long gap between an old install and a reinstall. Go to the app's
+    **Settings** page and click **Re-create definitions**. It's safe to run any time; it only
+    creates what's missing and leaves existing bundles alone.
   </Accordion>
-  <Accordion title="A bundle is unavailable or partially adds" icon="boxes-stacked">
-    Bundles respect each item's **stock**. If a component is out of stock, the bundle can't be
-    completed — restock the item or swap it out.
+  <Accordion title="Adding a bundle to the cart fails with an error" icon="cart-shopping">
+    The whole bundle is added in one request, so if any single chosen variant is out of stock
+    or otherwise unavailable, Shopify rejects the entire request and nothing gets added — the
+    customer sees an error message rather than a partial cart. Check stock on the specific
+    variant the customer picked, not just the product overall.
   </Accordion>
-  <Accordion title="The price looks wrong" icon="dollar-sign">
-    Check the **pricing type**: **fixed** sets one total price; **percentage off** discounts the
-    combined total. Confirm the value, then test in a private window to avoid a cached page.
+  <Accordion title="The discount isn't applying, or the price looks wrong" icon="dollar-sign">
+    A few things to check, in order:
+
+    1. In **Discounts** in your Shopify admin, confirm the automatic **Bundle pricing**
+       discount exists and its **Product discount (required)** checkbox is still on — turning
+       it off stops the discount from running.
+    2. Confirm the bundle's own price or tiers are set the way you expect, in the app admin.
+    3. If a customer manually removes one item from an otherwise-complete bundle in their cart,
+       the group is no longer intact, so the discount stops applying to what's left — this is
+       expected, not a bug, since the remaining items are no longer "the bundle" as configured.
+  </Accordion>
+  <Accordion title="Subscribe & Save doesn't show on the storefront" icon="rotate">
+    Subscribe & Save needs a Shopify subscriptions scope that's gated behind app review. If
+    your app installation hasn't been approved for it yet, the bundle still saves normally —
+    it just saves without a working subscribe option, silently, rather than failing the save.
+    This resolves itself once the subscriptions scope is approved; no action needed on your
+    end besides waiting.
   </Accordion>
 </AccordionGroup>
 
 <Note>
-  Still stuck? [Contact us](https://porttera.com/pages/contact) with the bundle and your store URL.
+  Still stuck? [Contact us](https://porttera.com/pages/contact) with the bundle's handle and
+  your store URL — that's almost always enough to spot the problem right away.
 </Note>

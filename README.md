@@ -2,18 +2,17 @@
 
 [![Docs Check](https://github.com/porttera/docs/actions/workflows/docs-check.yml/badge.svg)](https://github.com/porttera/docs/actions/workflows/docs-check.yml)
 
-Documentation for the Porttera Shopify apps (Wholesale, Product Customizer, Bundles),
-built with [Mintlify](https://mintlify.com).
+Documentation for Porttera Bundles, built with [Mintlify](https://mintlify.com).
 
 ## Structure
 
 ```
 docs.json            # config: branding, colors, navigation
 index.mdx            # home
-install.mdx          # how the apps install
-wholesale/*.mdx      # Wholesale docs
-customizer/*.mdx     # Product Customizer docs
-bundles/*.mdx        # Bundles docs
+faq.mdx
+changelog.mdx
+bundles/*.mdx        # installation, configuration, customization, features,
+                      # how it works, uninstalling, troubleshooting
 logo/                # wordmark logos (light/dark)
 favicon.svg
 ```

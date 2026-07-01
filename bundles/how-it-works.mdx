@@ -1,0 +1,66 @@
+---
+title: "How it works"
+description: "The metaobjects, cart properties, and Shopify Function behind the builder — useful if you or your theme developer want to know what's happening under the hood."
+---
+
+This page is for anyone curious about the mechanics, or a theme developer who wants to build
+on top of the block. None of it is required reading to use the app.
+
+## Where bundle data lives
+
+A bundle you create in the app admin isn't stored in some external database — it's saved as a
+**Shopify metaobject** on your own store, under a type namespace reserved to this app:
+
+| Type | What it holds |
+| --- | --- |
+| `$app:bundle` | The bundle itself: title, description, label, pricing type, price, tiers, Subscribe & Save flag |
+| `$app:bundle_category` | One category within a bundle: its title, pick count, and free-gift flag |
+| `$app:bundle_item` | One selectable line: a product variant reference and its display label |
+
+A bundle references its categories, its categories reference their items, and always-included
+items are referenced straight off the bundle. All three types are storefront-readable, which
+is what lets the theme block pull bundle content directly through Liquid's `shop.metaobjects`
+— no app-server round trip needed to render the builder.
+
+## How an add-to-cart actually happens
+
+When a shopper completes a bundle, the storefront block sends one request to Shopify's
+`/cart/add.js`, with every chosen variant as its own line. Each line carries a few hidden
+cart properties:
+
+| Property | Purpose |
+| --- | --- |
+| `_bundle` | The bundle's title |
+| `_bundle_id` | The bundle's handle, so the Function can group lines that belong together |
+| `_bundle_total` | The bundle's fixed price (fixed bundles) |
+| `_bundle_count` | How many items are in the group, so partial groups don't get discounted |
+| `_bundle_type` / `_bundle_tiers` | Present on tiered bundles, carrying the tier table |
+| `_bundle_free` | Set on free-gift lines |
+
+Because it's one atomic request, either every chosen variant lands in the cart together or
+none of them do — there's no partial add if a variant turns out to be unavailable.
+
+## How the price actually applies
+
+A Shopify Function (targeting `cart.lines.discounts.generate.run` and
+`cart.delivery-options.discounts.generate.run`) runs automatically on the cart. It groups cart
+lines by `_bundle_id`, checks the group against `_bundle_count` to confirm nothing's missing,
+and discounts the group down to `_bundle_total` (fixed) or the matching tier percentage
+(tiered). If the group is incomplete — say a line was removed from the cart by hand — no
+discount applies to it.
+
+This runs at the cart and checkout level, not just on the page, so the price a shopper sees
+before checkout is the price they're actually charged.
+
+The discount is created automatically as an **automatic app discount** the first time the app
+loads (you'll never need to set it up by hand), and it's configured to combine with order,
+product, and shipping discounts by default. It shows up under **Discounts** in your Shopify
+admin as "Bundle pricing," where its only setting is a **Product discount (required)** checkbox
+— leave it on, since turning it off stops the Function from running at all.
+
+## The proxy endpoint
+
+The block posts lightweight funnel events — a view, a step reached, an add — to an app proxy
+URL at `/apps/porttera-bundles/track`, which is what feeds the drop-off funnel on the app's
+**Analytics** page. That's what the block's **App proxy subpath** setting in the theme editor
+points at — it's internal to the app and not something you need to build against.

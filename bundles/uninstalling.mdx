@@ -1,0 +1,44 @@
+---
+title: "Uninstalling"
+description: "How to remove Porttera Bundles cleanly, and exactly what happens to your data."
+---
+
+<Steps>
+  <Step title="Remove the theme block first">
+    In **Online Store → Themes → Customize**, delete the **Bundle builder** block from any page
+    or template it's on, and save. Do this before uninstalling — once the app is uninstalled,
+    the pricing discount stops running and the block has nothing valid to show.
+  </Step>
+  <Step title="Uninstall the app">
+    From your Shopify admin, go to **Settings → Apps and sales channels**, find Porttera
+    Bundles, and uninstall it.
+  </Step>
+</Steps>
+
+## What gets removed
+
+- Your billing subscription cancels automatically — Shopify handles this as part of
+  uninstalling, and it stops the charge on your next billing cycle.
+- The app's OAuth session for your store is deleted right away.
+- The small record the app keeps about your shop (plan, onboarding status) is deleted, at the
+  latest, within about 48 hours, when Shopify sends the app its mandatory `shop/redact`
+  cleanup webhook.
+
+## What stays on your store
+
+Bundle configuration — the bundles, categories, and items you set up — is stored as
+**metaobjects on your own Shopify store**, not in the app's database. Uninstalling the app
+doesn't touch them, so they're still there afterward. They're inert without the app (nothing
+reads or writes them, and the pricing discount is gone), so they won't affect your store, but
+if you want them gone too you'll need to delete them yourself from
+**Settings → Custom data → Bundle** / **Bundle item** / **Bundle category** in your Shopify
+admin.
+
+Your products, variants, and orders are yours regardless — the app never owned or altered
+that data, it only referenced it.
+
+## Reinstalling later
+
+If you reinstall, the app re-creates its metaobject definitions automatically and any bundles
+you left in place should show up again in the **Bundles** list, handles intact. You'll need to
+re-add the theme block and re-choose a plan, since both of those reset on uninstall.

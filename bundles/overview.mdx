@@ -1,23 +1,58 @@
 ---
-title: "Bundles overview"
-description: "Smart bundle pricing and one-click add-to-cart."
+title: "Overview"
+description: "What Porttera Bundles does and how the pricing actually works."
 ---
 
-Bundles groups products together with pricing that's worth it — shown clearly on the page,
-added to the cart in a single click. Use it to lift average order value with curated sets.
+Porttera Bundles adds a "build your own bundle" section to your store. Shoppers pick items —
+sometimes from a few categories, sometimes just whatever they want — and check out at one
+bundle price instead of paying full price item by item.
 
-<Frame caption="A bundle with the savings shown on the product page">
-  <img src="/images/bundles-hero.svg" alt="Bundles savings on the page" />
+<Frame caption="A bundle builder on a storefront page">
+  <img src="/images/bundles-hero.svg" alt="Bundle builder placeholder" />
 </Frame>
 
+## The two pricing modes
+
 <CardGroup cols={2}>
-  <Card title="Quickstart" icon="rocket" href="/bundles/quickstart">Build a bundle in minutes.</Card>
-  <Card title="Features" icon="list-check" href="/bundles/features">Everything it does.</Card>
-  <Card title="Settings" icon="sliders" href="/bundles/settings">Configure pricing.</Card>
-  <Card title="Developer" icon="code" href="/bundles/developer">Add bundles in code.</Card>
+  <Card title="Fixed price" icon="tag">
+    You set one price for the whole bundle (say, "any 3 items for $60"). Shoppers fill the
+    slots you've defined and pay that price no matter which items they choose.
+  </Card>
+  <Card title="Tiered / volume" icon="chart-line">
+    No fixed slots — shoppers add as many items as they want, and the discount percentage
+    goes up at the item counts you set (e.g. 3 items = 10% off, 5 = 15% off, 10 = 25% off).
+  </Card>
 </CardGroup>
 
-## Who it's for
+A discount only ever lowers the price. If a shopper's picks already cost less than the bundle
+price on a fixed bundle, no discount applies — the app won't charge more than the items are
+already worth.
 
-Stores that want to **raise average order value** by selling complementary products together —
-kits, sets, "frequently bought together" — without wrestling with discount rules.
+## Why it works on any theme, with no theme code
+
+The builder is a **Shopify theme app extension** — a block you add through the theme editor,
+not a snippet pasted into `theme.liquid`. That's what makes it theme-independent: switch
+themes, and you just re-add the block on the new one. Nothing breaks when a theme updates,
+and nothing is left in your theme files if you remove it.
+
+## Why the pricing is safe
+
+A lot of bundle apps create one combined "bundle SKU," which is where inventory tracking,
+reporting, and returns usually get messy. Porttera Bundles doesn't do that. Each item a
+shopper picks is added to the cart as **its own real variant**, tagged with a few hidden
+properties that identify which bundle it belongs to. A Shopify Function reads those
+properties at checkout, confirms the full set is there, and discounts the group down to the
+bundle price — while every item stays its own line in the cart, the order, and your reports.
+
+See [How it works](/bundles/how-it-works) for the exact mechanics.
+
+## Next
+
+<CardGroup cols={2}>
+  <Card title="Installation" icon="download" href="/bundles/installation">
+    Get the app installed and your first bundle live.
+  </Card>
+  <Card title="Configuration" icon="sliders" href="/bundles/configuration">
+    Build out categories, tiers, and Subscribe & Save.
+  </Card>
+</CardGroup>
